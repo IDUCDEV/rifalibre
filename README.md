@@ -51,6 +51,35 @@ lib/
 │   │       │   └── register_page.dart
 │   │       └── widgets/
 │   │           └── auth_button.dart
+│   ├── profile/                     # ⭐ PERFIL + NAVIGATION DRAWER
+│   │   ├── domain/
+│   │   │   ├── entities/
+│   │   │   │   └── profile_entity.dart
+│   │   │   ├── repositories/
+│   │   │   │   └── profile_repository.dart
+│   │   │   └── usecases/
+│   │   │       ├── get_profile.dart
+│   │   │       ├── update_profile.dart
+│   │   │       ├── upload_avatar.dart
+│   │   │       └── get_user_stats.dart
+│   │   ├── data/
+│   │   │   ├── models/
+│   │   │   │   └── profile_model.dart
+│   │   │   ├── datasources/
+│   │   │   │   └── profile_remote_datasource.dart
+│   │   │   └── repositories/
+│   │   │       └── profile_repository_impl.dart
+│   │   └── presentation/
+│   │       ├── bloc/
+│   │       │   └── profile_bloc.dart
+│   │       ├── pages/
+│   │       │   ├── profile_page.dart
+│   │       │   ├── edit_profile_page.dart
+│   │       │   └── settings_page.dart
+│   │       └── widgets/
+│   │           ├── app_drawer.dart
+│   │           ├── profile_header.dart
+│   │           └── profile_menu_item.dart
 │   │
 │   ├── raffles/                   # ⭐ CORE: GESTIÓN DE RIFAS
 │   │   ├── domain/
@@ -203,36 +232,7 @@ lib/
 │           │   └── native_ad_widget.dart
 │           └── pages/
 │               └── ad_management_page.dart
-│   │
-│   ├── profile/                     # ⭐ PERFIL + NAVIGATION DRAWER
-│   │   ├── domain/
-│   │   │   ├── entities/
-│   │   │   │   └── profile_entity.dart
-│   │   │   ├── repositories/
-│   │   │   │   └── profile_repository.dart
-│   │   │   └── usecases/
-│   │   │       ├── get_profile.dart
-│   │   │       ├── update_profile.dart
-│   │   │       ├── upload_avatar.dart
-│   │   │       └── get_user_stats.dart
-│   │   ├── data/
-│   │   │   ├── models/
-│   │   │   │   └── profile_model.dart
-│   │   │   ├── datasources/
-│   │   │   │   └── profile_remote_datasource.dart
-│   │   │   └── repositories/
-│   │   │       └── profile_repository_impl.dart
-│   │   └── presentation/
-│   │       ├── bloc/
-│   │       │   └── profile_bloc.dart
-│   │       ├── pages/
-│   │       │   ├── profile_page.dart
-│   │       │   ├── edit_profile_page.dart
-│   │       │   └── settings_page.dart
-│   │       └── widgets/
-│   │           ├── app_drawer.dart
-│   │           ├── profile_header.dart
-│   │           └── profile_menu_item.dart
+│   
 │
 └── web_view/                     # ⭐ WEB VIEW DEL COMPRADOR
     ├── index.html
