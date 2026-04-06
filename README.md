@@ -144,7 +144,7 @@ lib/
 │   │   │   └── usecases/
 │   │   │       ├── get_raffle_for_buyer.dart
 │   │   │       ├── select_ticket.dart
-│   │       │       └── submit_payment.dart
+│   │   │       └── submit_payment.dart
 │   │   ├── data/
 │   │   │   ├── models/
 │   │   │   │   └── buyer_ticket_model.dart
