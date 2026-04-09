@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rifa - RifaLibre</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Loading State -->
+    <div id="loading" class="loading-container">
+      <div class="spinner"></div>
+      <p>Cargando rifa...</p>
+    </div>
+
+    <!-- Error State -->
+    <div id="error" class="error-container" style="display: none;">
+      <h2>❌ Rifa no encontrada</h2>
+      <p>Esta rifa no existe o ha sido finalizada.</p>
+      <a href="https://rifalibre.app" class="btn btn-primary">Crear mi rifa</a>
+    </div>
+
+    <!-- Content -->
+    <div id="content" style="display: none;">
+      <!-- Header -->
+      <header class="raffle-header">
+        <div class="badge">🎰 RIFA ACTIVA</div>
+        <h1 id="raffleTitle">Cargando...</h1>
+        <p id="raffleDescription" class="prize-description"></p>
+        
+        <div class="price-box">
+          <span id="ticketPrice" class="price">$0</span>
+          <span id="ticketCurrency" class="currency">USD</span>
+          <span class="per-ticket">por número</span>
+        </div>
+      </header>
+
+      <!-- Progress -->
+      <section class="progress-section">
+        <div class="progress-info">
+          <span class="progress-label">Progreso</span>
+          <span class="progress-count"><span id="soldCount">0</span>/<span id="totalCount">0</span> vendidos</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+        </div>
+        <p id="progressPercent" class="progress-percent">0% vendido</p>
+      </section>
+
+      <!-- Ticket Grid -->
+      <section class="tickets-section">
+        <h2>Selecciona tu número</h2>
+        <p class="tickets-hint">Toca un número disponible para seleccionarlo</p>
+        
+        <div id="ticketGrid" class="ticket-grid">
+          <!-- Generated via JS -->
+        </div>
+      </section>
+
+      <!-- Legend -->
+      <section class="legend">
+        <div class="legend-item">
+          <span class="legend-color available"></span>
+          <span>Disponible</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color reserved"></span>
+          <span>Apartado</span>
+        </div>
+        <div class="legend-item">
+          <span class="legend-color sold"></span>
+          <span>Vendido</span>
+        </div>
+      </section>
+
+      <!-- Selected Ticket -->
+      <div id="selectedTicket" class="selected-ticket" style="display: none;">
+        <div class="selected-info">
+          <span class="selected-label">Número seleccionado:</span>
+          <span id="selectedNumber" class="selected-number">#00</span>
+        </div>
+        <p class="selected-price">Total: <span id="totalPrice">$0</span></p>
+        
+        <a id="whatsappBtn" href="#" class="whatsapp-btn">
+          <span>💬</span> Comprar por WhatsApp
+        </a>
+        
+        <button id="clearSelection" class="btn-clear">Cambiar número</button>
+      </div>
+    </div>
+
+    <!-- Ad Banner (Bottom) -->
+    <div id="adBanner" class="ad-banner" style="display: none;">
+      <!-- AdMob will inject here -->
+      <p class="ad-text">Publicidad</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

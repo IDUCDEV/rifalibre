@@ -1,0 +1,568 @@
+/* ========================================
+   RifaLibre - WebView Styles
+   ======================================== */
+
+:root {
+  /* Colors */
+  --primary: #1E3A8A;
+  --primary-dark: #172554;
+  --primary-light: #3B82F6;
+  --secondary: #10B981;
+  --secondary-light: #D1FAE5;
+  --accent: #F59E0B;
+  --accent-light: #FEF3C7;
+  --error: #EF4444;
+  --error-light: #FEE2E2;
+  --warning: #F97316;
+  --warning-light: #FFEDD5;
+  
+  /* Backgrounds */
+  --bg: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-variant: #F1F5F9;
+  
+  /* Text */
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+  
+  /* Ticket Colors */
+  --ticket-available: #10B981;
+  --ticket-available-bg: #D1FAE5;
+  --ticket-reserved: #F59E0B;
+  --ticket-reserved-bg: #FEF3C7;
+  --ticket-sold: #EF4444;
+  --ticket-sold-bg: #FEE2E2;
+  --ticket-selected: #1E3A8A;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  
+  /* Border Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  
+  /* Typography */
+  --font-display: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================
+   Loading & Error States
+   ======================================== */
+
+.loading-container, .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--surface-variant);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-container h2 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  color: var(--error);
+  margin-bottom: var(--space-sm);
+}
+
+.error-container p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+/* ========================================
+   Header
+   ======================================== */
+
+.raffle-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.raffle-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.3; }
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-md);
+}
+
+.raffle-header h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.prize-description {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: var(--space-lg);
+  min-height: 24px;
+}
+
+.price-box {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  background: rgba(255,255,255,0.15);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+}
+
+.price {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.currency {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.per-ticket {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ========================================
+   Progress Section
+   ======================================== */
+
+.progress-section {
+  background: var(--surface);
+  padding: var(--space-lg) var(--space-md);
+  margin: var(--space-md);
+  border-radius: var(--radius-md);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.progress-label {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.progress-count {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.progress-bar {
+  height: 12px;
+  background: var(--surface-variant);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--secondary) 0%, var(--primary-light) 100%);
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease-out;
+}
+
+.progress-percent {
+  text-align: center;
+  margin-top: var(--space-sm);
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+/* ========================================
+   Ticket Grid
+   ======================================== */
+
+.tickets-section {
+  padding: var(--space-md);
+  padding-bottom: 100px; /* Space for fixed bottom */
+}
+
+.tickets-section h2 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: var(--space-xs);
+}
+
+.tickets-hint {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-bottom: var(--space-md);
+}
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-sm);
+}
+
+@media (max-width: 400px) {
+  .ticket-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.ticket {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.ticket.available {
+  background: var(--ticket-available-bg);
+  color: var(--ticket-available);
+}
+
+.ticket.available:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.ticket.reserved {
+  background: var(--ticket-reserved-bg);
+  color: var(--ticket-reserved);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.ticket.sold {
+  background: var(--ticket-sold-bg);
+  color: var(--ticket-sold);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.ticket.selected {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary-dark);
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(30, 58, 138, 0.4);
+}
+
+/* ========================================
+   Legend
+   ======================================== */
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: var(--space-md);
+  background: var(--surface);
+  margin: var(--space-md);
+  border-radius: var(--radius-md);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.legend-color {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-xs);
+}
+
+.legend-color.available {
+  background: var(--ticket-available);
+}
+
+.legend-color.reserved {
+  background: var(--ticket-reserved);
+}
+
+.legend-color.sold {
+  background: var(--ticket-sold);
+}
+
+/* ========================================
+   Selected Ticket (Bottom Sheet)
+   ======================================== */
+
+.selected-ticket {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  z-index: 100;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.selected-info {
+  text-align: center;
+  margin-bottom: var(--space-sm);
+}
+
+.selected-label {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.selected-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.selected-price {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+  color: var(--secondary);
+}
+
+/* ========================================
+   Buttons
+   ======================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: #25D366;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.whatsapp-btn:hover {
+  background: #20BD5A;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+}
+
+.btn-clear {
+  display: block;
+  width: 100%;
+  margin-top: var(--space-sm);
+  padding: var(--space-sm);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-clear:hover {
+  color: var(--text-primary);
+}
+
+/* ========================================
+   Ad Banner
+   ======================================== */
+
+.ad-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface-variant);
+  padding: var(--space-sm);
+  text-align: center;
+  border-top: 1px solid var(--surface-variant);
+}
+
+.ad-text {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scale-in {
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 480px) {
+  .raffle-header h1 {
+    font-size: 24px;
+  }
+  
+  .price {
+    font-size: 28px;
+  }
+  
+  .ticket-grid {
+    gap: var(--space-xs);
+  }
+  
+  .ticket {
+    font-size: 14px;
+  }
+  
+  .selected-ticket {
+    padding: var(--space-md);
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F172A;
+    --surface: #1E293B;
+    --surface-variant: #334155;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+  }
+}
